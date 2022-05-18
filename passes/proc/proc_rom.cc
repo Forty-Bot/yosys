@@ -130,6 +130,9 @@ struct RomWorker
 			}
 		}
 		int abits = ceil_log2(maxaddr + 1);
+		log("MEOW %d %d %d %d\n", abits, swsigbits, got_default, GetSize(vals));
+		for (auto &it: vals)
+			log("VAL %d\n", it.first);
 		if (!got_default && (swsigbits > 30 || GetSize(vals) != (1 << swsigbits))) {
 			log_debug("rejecting switch: not all values are covered\n");
 			return;
